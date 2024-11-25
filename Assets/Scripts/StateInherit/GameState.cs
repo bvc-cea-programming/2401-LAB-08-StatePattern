@@ -1,7 +1,7 @@
 public class GameState : BaseState
 {
     private GameStateMachine _machine;
-    private GameState() 
+    public GameState(GameStateMachine state) 
     {
         _machine = new GameStateMachine();
     }

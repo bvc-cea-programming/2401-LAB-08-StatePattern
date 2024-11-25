@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameOverState : BaseState
 {
     private GameStateMachine _machine;
-    private GameOverState()
+    public GameOverState(GameStateMachine state)
     {
         _machine = new GameStateMachine();
     }
