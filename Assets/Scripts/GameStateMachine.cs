@@ -9,6 +9,13 @@ public class GameStateMachine : BaseStateMachine
     public UIManager UIManager => uiManager;
 
     // Create new private states. MenuState, GameState, GameOverState
+    private GameState gameState;
+    public GameState GameState => gameState;
+
+    private GameOverState gameOverState;
+    public GameOverState GameOverState => gameOverState;
+    private MenuState menuState;
+    public MenuState MenuState => menuState;
     
     // Create new public properties for each state. MenuState, GameState, GameOverState
     
@@ -16,20 +23,26 @@ public class GameStateMachine : BaseStateMachine
     private void Awake()
     {
         // Initialize the states
+        gameOverState = new GameOverState(this);
+        gameState = new GameState(this);
+        menuState = new MenuState(this);
     }
 
     private void Start()
     {
+        SetState(menuState);
         // open the menu
     }
     
     public void StartGame()
     {
         // start the game
+        SetState(gameState);
     }
 
     public void GotoMenu()
     {
         // go to menu
+        SetState(menuState);
     }
 }
