@@ -27,21 +27,21 @@ public class GameStateMachine : BaseStateMachine
         gameOverState =new GameOverState(this);
     }
 
-    private void Start()
+    public void Start()
     {
         // open the menu
-        uiManager.ShowMenu();
-
+        base.SetState(menuState);
     }
     
     public void StartGame()
     {
         // start the game
-
+        base.SetState(gameState);
     }
 
     public void GotoMenu()
     {
         // go to menu
+        base.SetState(menuState);
     }
 }

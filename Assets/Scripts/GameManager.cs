@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         _timer-= Time.deltaTime;
         OnTimerChanged?.Invoke(_timer);
+       
     }
     
     public void SetHighScore()
