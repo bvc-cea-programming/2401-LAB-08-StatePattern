@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class GameStateMachine : BaseStateMachine
 {
@@ -9,27 +10,40 @@ public class GameStateMachine : BaseStateMachine
     public UIManager UIManager => uiManager;
 
     // Create new private states. MenuState, GameState, GameOverState
-    
+    private MenuState menuState;
+    private GameState gameState;
+    private GameOverState gameOverState;
+
     // Create new public properties for each state. MenuState, GameState, GameOverState
-    
+    public MenuState MenuState => menuState;
+    public GameState GameState => gameState;
+    public GameOverState GameOverState => gameOverState;
+
 
     private void Awake()
     {
         // Initialize the states
+        menuState = new MenuState(this);
+        gameState = new GameState(this);
+        gameOverState = new GameOverState(this);
+
     }
 
     private void Start()
     {
         // open the menu
+        base.SetState(menuState);
     }
     
     public void StartGame()
     {
         // start the game
+        base.SetState(gameState);
     }
 
     public void GotoMenu()
     {
         // go to menu
+        base.SetState(menuState);
     }
 }
