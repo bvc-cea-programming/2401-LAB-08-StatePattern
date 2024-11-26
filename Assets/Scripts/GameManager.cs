@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public event Action<float> OnTimerChanged;
 
     
-    public void Game()
+    public void Game()  
     {
         _score++;
         OnScoreChanged?.Invoke(_score);

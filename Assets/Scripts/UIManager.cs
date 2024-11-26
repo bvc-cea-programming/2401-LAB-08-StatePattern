@@ -19,44 +19,44 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPage;
     [SerializeField] private TMP_Text txtFinalScore;
 
-    public void ShowMenu()
+    public void ShowMenu()  //MenuState.EnterState
     {
         menuPage.SetActive(true);
         gamePage.SetActive(false);
         gameOverPage.SetActive(false);
     }
     
-    public void ShowGame()
+    public void ShowGame()  //GameState.EnterState
     {
         menuPage.SetActive(false);
         gamePage.SetActive(true);
         gameOverPage.SetActive(false);
     }
     
-    public void ShowGameOver(int score)
+    public void ShowGameOver(int score) //GameOverState.EnterState
     {
         menuPage.SetActive(false);
         gamePage.SetActive(false);
         gameOverPage.SetActive(true);
     }
     
-    public void SetMenuHighScore(int score)
+    public void SetMenuHighScore(int score) //MenuState.EnterState
     {
         txtHighScore.text = "High Score: " + score.ToString();
     }
     
-    public void SetGameScore(int score)
+    public void SetGameScore(int score) //GameState.UpdateState
     {
         txtScore.text = score.ToString();
     }
     
-    public void SetGameTimer(float timer)
+    public void SetGameTimer(float timer) //GameState.UpdateState
     {
         txtTimer.text = "Time: " + timer.ToString("0.00");
         imgTimer.fillAmount = timer / 10;
     }
     
-    public void SetGameEndScore(int score, int highScore)
+    public void SetGameEndScore(int score, int highScore) //GameOverState.EnterState
     {
         txtFinalScore.text = "Your Score: " + score.ToString();
 
